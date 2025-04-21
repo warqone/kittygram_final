@@ -5,29 +5,29 @@ volumes:
 
 services:
   db:
-    image: postgres:13
+    image: postgres:13.10
     env_file: .env
     volumes:
       - pg_data:/var/lib/postgresql/data
-
-  backend: 
-    build: ./backend/
+  
+  backend:
+    image: warqone/kittygram_backend
     env_file: .env
     volumes:
       - static:/backend_static
       - media:/app/media
     depends_on:
       - db
-
+  
   frontend:
-    build: ./frontend/
+    image: warqone/kittygram_frontend
     env_file: .env
     command: cp -r /app/build/. /static/
     volumes:
       - static:/static
-
+  
   gateway:
-    build: ./nginx/
+    image: warqone/kittygram_gateway 
     env_file: .env
     ports:
       - 9000:80
@@ -36,4 +36,4 @@ services:
       - media:/app/media
     depends_on:
       - backend
-      - frontend
+      - frontend 
