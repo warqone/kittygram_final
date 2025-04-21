@@ -6,13 +6,13 @@ from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-load_dotenv(BASE_DIR / '.env')
+load_dotenv(os.path.join(BASE_DIR, '.env'))
 
-SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'backend', 'db']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'backend']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
