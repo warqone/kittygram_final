@@ -8,8 +8,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 load_dotenv(os.path.join(BASE_DIR, '.env'))
 
-SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
-
+SECRET_KEY = 'django-insecure-cg6*%6d51ef8f#4!r3*$vmxm4)abgjw8mo!4y-q*uq1!4$-89$'
+#  Знаю ошибку, но как заливать с os.getenv() если .env не подгружает в репо?
 DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'backend']
